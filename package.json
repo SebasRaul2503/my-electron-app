@@ -1,0 +1,12 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "Template to build an Electron App",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SebasRaul2503",
+  "license": "MIT"
+}

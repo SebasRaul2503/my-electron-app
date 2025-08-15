@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.colorTheme": "Catppuccin Macchiato",
+  "material-icon-theme.activeIconPack": "none",
+  "workbench.iconTheme": "material-icon-theme"
+}
