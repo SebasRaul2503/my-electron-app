@@ -2,11 +2,27 @@
   "name": "my-electron-app",
   "version": "1.0.0",
   "description": "Template to build an Electron App",
-  "main": "main.js",
+  "main": "main.ts",
   "scripts": {
-    "start": "node main.js",
+    "install:all": "npm install && cd test-app && npm install",
+    "copy-assets": "xcopy src\\assets dist\\assets /E /I /Y",
+    "build:electron": "tsc && npm run copy-assets && npm run build:frontend",
+    "start:electron": "electron ./dist/main.js",
+    "build:frontend": "cd test-app && ng build --base-href ./",
+    "start": "npm run build:electron && npm run start:electron",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "SebasRaul2503",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.2.1",
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "systeminformation": "^5.27.7"
+  }
 }

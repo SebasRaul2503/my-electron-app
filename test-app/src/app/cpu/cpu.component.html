@@ -1,0 +1,105 @@
+<div class="system-monitor">
+  <div class="metrics-grid">
+    <div class="metric-card cpu-card">
+      <div class="metric-header">
+        <div class="metric-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="4" y="4" width="16" height="16" rx="2" />
+            <rect x="9" y="9" width="6" height="6" />
+            <path d="m9 1 0 6" />
+            <path d="m15 1 0 6" />
+            <path d="m9 17 0 6" />
+            <path d="m15 17 0 6" />
+            <path d="m1 9 6 0" />
+            <path d="m17 9 6 0" />
+            <path d="m1 15 6 0" />
+            <path d="m17 15 6 0" />
+          </svg>
+        </div>
+        <div class="metric-info">
+          <h3 class="metric-title">CPU Usage</h3>
+          <div class="metric-value">
+            {{ cpuLoad }}<span class="unit">%</span>
+          </div>
+        </div>
+        <div
+          class="metric-status"
+          [class.high]="cpuLoad > 80"
+          [class.medium]="cpuLoad > 50 && cpuLoad <= 80"
+          [class.low]="cpuLoad <= 50"
+        >
+          <div class="status-dot"></div>
+        </div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="cpuLoad"></div>
+      </div>
+    </div>
+
+    <div class="metric-card ram-card">
+      <div class="metric-header">
+        <div class="metric-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M6 19v-3" />
+            <path d="M10 19v-3" />
+            <path d="M14 19v-3" />
+            <path d="M18 19v-3" />
+            <path d="M8 11V9" />
+            <path d="M16 11V9" />
+            <path d="M12 11V9" />
+            <path d="M2 15h20" />
+            <path
+              d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.063a2 2 0 0 0 0-3.837Z"
+            />
+          </svg>
+        </div>
+        <div class="metric-info">
+          <h3 class="metric-title">Memory Usage</h3>
+          <div class="metric-value">
+            {{ ramUsed }}<span class="separator">/</span>{{ ramTotal
+            }}<span class="unit">GB</span>
+          </div>
+        </div>
+        <div
+          class="metric-status"
+          [class.high]="getMemoryPercentage() > 80"
+          [class.medium]="
+            getMemoryPercentage() > 50 && getMemoryPercentage() <= 80
+          "
+          [class.low]="getMemoryPercentage() <= 50"
+        >
+          <div class="status-dot"></div>
+        </div>
+      </div>
+      <div class="progress-bar">
+        <div
+          class="progress-fill"
+          [style.width.%]="getMemoryPercentage()"
+        ></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <div class="chart-header">
+      <h3 class="chart-title">CPU Usage Over Time</h3>
+      <div class="chart-legend">
+        <div class="legend-item">
+          <div class="legend-color"></div>
+          <span>CPU Load</span>
+        </div>
+      </div>
+    </div>
+    <app-cpu-chart></app-cpu-chart>
+  </div>
+</div>
