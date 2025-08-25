@@ -1,4 +1,4 @@
-# My Electron App – Angular + Electron + Express + System Monitor
+# CPU + RAM Monitor – Angular + Electron + Express + System Monitor
 
 **Author:** [SebasRaul2503](https://github.com/SebasRaul2503)
 **License:** MIT
